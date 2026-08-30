@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 771">
+  <rect width="800" height="771" fill="#f6f4ef"/>
+
+  <!-- browser frame -->
+  <rect x="110" y="140" width="580" height="380" rx="4" fill="#ffffff" stroke="#e3ddd0" stroke-width="2"/>
+  <rect x="110" y="140" width="580" height="46" rx="4" fill="#ffffff" stroke="#e3ddd0" stroke-width="2"/>
+  <circle cx="140" cy="163" r="6" fill="#e3ddd0"/>
+  <circle cx="162" cy="163" r="6" fill="#e3ddd0"/>
+  <circle cx="184" cy="163" r="6" fill="#e3ddd0"/>
+  <rect x="220" y="155" width="400" height="16" rx="8" fill="#f6f4ef"/>
+
+  <!-- content blocks -->
+  <rect x="140" y="212" width="210" height="130" rx="2" fill="#5c6f78" opacity="0.15"/>
+  <rect x="140" y="212" width="210" height="130" rx="2" fill="none" stroke="#5c6f78" stroke-width="1.5"/>
+  <rect x="370" y="212" width="300" height="16" rx="2" fill="#e3ddd0"/>
+  <rect x="370" y="240" width="300" height="10" rx="2" fill="#e3ddd0"/>
+  <rect x="370" y="258" width="230" height="10" rx="2" fill="#e3ddd0"/>
+  <rect x="370" y="276" width="260" height="10" rx="2" fill="#e3ddd0"/>
+
+  <rect x="140" y="368" width="130" height="56" rx="2" fill="none" stroke="#e3ddd0" stroke-width="1.5"/>
+  <rect x="286" y="368" width="130" height="56" rx="2" fill="none" stroke="#e3ddd0" stroke-width="1.5"/>
+  <rect x="432" y="368" width="130" height="56" rx="2" fill="#2a2823"/>
+  <rect x="458" y="388" width="78" height="8" rx="4" fill="#f6f4ef"/>
+
+  <!-- cursor -->
+  <path d="M 550 424 L 550 486 L 568 470 L 579 494 L 590 489 L 579 465 L 601 463 Z" fill="#2a2823"/>
+
+  <!-- annotation dots / spec lines -->
+  <circle cx="235" cy="277" r="4" fill="#5c6f78"/>
+  <line x1="239" y1="277" x2="150" y2="310" stroke="#5c6f78" stroke-width="1" stroke-dasharray="3 3"/>
+
+  <text x="400" y="620" font-family="Comfortaa, sans-serif" font-size="22" fill="#726e64" text-anchor="middle" letter-spacing="2">UX &amp; PRODUCT DESIGN</text>
+</svg>

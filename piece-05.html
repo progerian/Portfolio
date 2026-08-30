@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untitled, 2022 — Piotr Szlachta</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  header { transform: translateY(0); }
+
+  .piece-nav {
+    padding: 6.5rem 5vw 0;
+  }
+
+  .piece {
+    padding: 0 5vw 6rem;
+  }
+
+  .piece-image {
+    max-width: 407px;
+    margin: 0 auto 3rem;
+  }
+
+  .piece-header {
+    max-width: 407px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .piece-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: zoom-in;
+    box-shadow: 0 24px 60px rgba(40, 35, 25, 0.15);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .piece-image img:hover {
+    box-shadow: 0 30px 70px rgba(40, 35, 25, 0.22);
+  }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5vw;
+    background: rgba(20, 18, 15, 0.92);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .lightbox.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: zoom-out;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5);
+  }
+
+  .piece-header {
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .piece-header .divider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    text-decoration: none;
+  }
+
+  .back-link:hover { color: var(--accent); }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .piece-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .meta {
+    color: var(--fg-dim);
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 900px) {
+    .piece-nav { padding-top: 5.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .piece, .piece-nav {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .piece-header h1 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="visible">
+  <a class="logo" href="index.html">Piotr Szlachta</a>
+  <nav>
+    <a href="paintings.html">Paintings</a>
+    <a href="posters.html">Posters</a>
+    <a href="street-art.html">Street Art</a>
+    <a href="corporate.html">Corporate</a>
+    <a href="ux-design.html">UX/Design</a>
+    <a href="music.html">Music</a>
+    <a href="somatic-therapy.html">Somatic Therapy</a>
+  </nav>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+</header>
+
+<script>
+  (function () {
+    var btn = document.getElementById('menu-toggle');
+    var nav = document.querySelector('header nav');
+    if (btn && nav) {
+      btn.addEventListener('click', function () { nav.classList.toggle('open'); });
+    }
+  })();
+</script>
+
+
+
+<div class="piece-nav">
+  <a class="back-link" href="paintings.html">← All paintings</a>
+</div>
+
+<main class="piece">
+  <div class="piece-image">
+    <img id="piece-thumb" src="images/paintings/painting-2022-150x100-b.jpg" alt="Untitled painting, 2022">
+  </div>
+
+  <div class="piece-header">
+    <div class="meta">2022 · 150 × 100 cm</div>
+  </div>
+
+  <div class="like-comments">
+    <div class="like-bar">
+      <button class="like-btn" id="like-btn" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        <span id="like-count">0</span>
+      </button>
+    </div>
+    <div class="comments">
+      <div class="comments-title">Comments</div>
+      <form class="comment-form" id="comment-form">
+        <textarea placeholder="Add a comment…" required></textarea>
+        <button type="submit">Post</button>
+      </form>
+      <div class="comment-list" id="comment-list">
+        <p class="comment-empty">No comments yet.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="lightbox" id="lightbox">
+  <img src="images/paintings/painting-2022-150x100-b.jpg" alt="Enlarged view of the artwork">
+</div>
+
+<footer id="contact">
+  <p>Find more work on <a href="https://www.instagram.com/piotr_szlachta/" target="_blank" rel="noopener">Instagram @piotr_szlachta</a></p>
+  <p style="margin-top: 0.5rem;">© 2026 Piotr Szlachta</p>
+</footer>
+
+<script>
+  const thumb = document.getElementById('piece-thumb');
+  const lightbox = document.getElementById('lightbox');
+  thumb.addEventListener('click', () => lightbox.classList.add('open'));
+  lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+
+  const likeBtn = document.getElementById('like-btn');
+  const likeCount = document.getElementById('like-count');
+  let liked = false;
+  likeBtn.addEventListener('click', () => {
+    liked = !liked;
+    likeBtn.classList.toggle('liked', liked);
+    likeCount.textContent = liked ? '1' : '0';
+  });
+
+  const commentForm = document.getElementById('comment-form');
+  const commentList = document.getElementById('comment-list');
+  commentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const textarea = commentForm.querySelector('textarea');
+    const text = textarea.value.trim();
+    if (!text) return;
+    const empty = commentList.querySelector('.comment-empty');
+    if (empty) empty.remove();
+    const item = document.createElement('div');
+    item.className = 'comment-item';
+    item.textContent = text;
+    commentList.appendChild(item);
+    textarea.value = '';
+  });
+
+</script>
+
+</body>
+</html>

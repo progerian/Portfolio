@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desertfest New York 2020 — Piotr Szlachta</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  header { transform: translateY(0); }
+
+  .piece-nav {
+    padding: 6.5rem 5vw 0;
+  }
+
+  .piece {
+    padding: 0 5vw 6rem;
+  }
+
+  .poster-hero {
+    max-width: 407px;
+    margin: 0 auto 3rem;
+  }
+
+  .poster-hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: zoom-in;
+    box-shadow: 0 24px 60px rgba(40, 35, 25, 0.15);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .poster-hero img:hover {
+    box-shadow: 0 30px 70px rgba(40, 35, 25, 0.22);
+  }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5vw;
+    background: rgba(20, 18, 15, 0.92);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .lightbox.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: zoom-out;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5);
+  }
+
+  .piece-header {
+    max-width: 407px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    text-decoration: none;
+  }
+
+  .back-link:hover { color: var(--accent); }
+
+  .piece-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    margin-bottom: 2rem;
+  }
+
+  .description {
+    max-width: 407px;
+    margin: 0 auto;
+  }
+
+  .description p {
+    color: var(--fg-dim);
+    margin-bottom: 1.4rem;
+    font-size: 1.05rem;
+  }
+
+  .photoset {
+    max-width: 407px;
+    margin: 3rem auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .photoset img {
+    height: 100px;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    cursor: zoom-in;
+    border: 1px solid var(--border);
+    transition: opacity 0.2s ease;
+  }
+
+  .photoset img:hover {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 900px) {
+    .piece-nav { padding-top: 5.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .piece, .piece-nav {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .piece-header h1 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="visible">
+  <a class="logo" href="index.html">Piotr Szlachta</a>
+  <nav>
+    <a href="paintings.html">Paintings</a>
+    <a href="posters.html">Posters</a>
+    <a href="street-art.html">Street Art</a>
+    <a href="corporate.html">Corporate</a>
+    <a href="ux-design.html">UX/Design</a>
+    <a href="music.html">Music</a>
+    <a href="somatic-therapy.html">Somatic Therapy</a>
+  </nav>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+</header>
+
+<script>
+  (function () {
+    var btn = document.getElementById('menu-toggle');
+    var nav = document.querySelector('header nav');
+    if (btn && nav) {
+      btn.addEventListener('click', function () { nav.classList.toggle('open'); });
+    }
+  })();
+</script>
+
+
+
+<div class="piece-nav">
+  <a class="back-link" href="posters.html">← All posters</a>
+</div>
+
+<main class="piece">
+  <div class="poster-hero">
+    <img class="zoomable" src="images/posters/poster-11.jpg" alt="Desertfest New York 2020 poster artwork">
+  </div>
+
+  <div class="piece-header">
+    <h1>Desertfest New York 2020</h1>
+  </div>
+
+  <div class="description">
+    <p>Desertfest New York is the US edition of the international Desertfest festival, dedicated to stoner rock, doom, sludge, heavy psych and underground heavy music. Launched in 2019, the New York edition brings together international heavyweights and underground acts from across the heavy music scene.</p>
+    <p>The 2020 edition, which was due to be the festival’s second edition, was cancelled due to the COVID-19 pandemic.</p>
+  </div>
+
+  <div class="photoset">
+    <img class="zoomable" src="images/posters/poster-newyork-2020-thumb1.jpg" alt="Desertfest New York 2020 announcement teaser">
+    <img class="zoomable" src="images/posters/poster-newyork-2020-thumb2.jpg" alt="Desertfest New York 2020 lineup announcement">
+  </div>
+
+  <div class="like-comments">
+    <div class="like-bar">
+      <button class="like-btn" id="like-btn" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        <span id="like-count">0</span>
+      </button>
+    </div>
+    <div class="comments">
+      <div class="comments-title">Comments</div>
+      <form class="comment-form" id="comment-form">
+        <textarea placeholder="Add a comment…" required></textarea>
+        <button type="submit">Post</button>
+      </form>
+      <div class="comment-list" id="comment-list">
+        <p class="comment-empty">No comments yet.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img" src="" alt="Enlarged view">
+</div>
+
+<footer id="contact">
+  <p>Find more work on <a href="https://www.instagram.com/piotr_szlachta/" target="_blank" rel="noopener">Instagram @piotr_szlachta</a></p>
+  <p style="margin-top: 0.5rem;">© 2026 Piotr Szlachta</p>
+</footer>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  document.querySelectorAll('.zoomable').forEach((img) => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('open');
+    });
+  });
+
+  lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+
+  const likeBtn = document.getElementById('like-btn');
+  const likeCount = document.getElementById('like-count');
+  let liked = false;
+  likeBtn.addEventListener('click', () => {
+    liked = !liked;
+    likeBtn.classList.toggle('liked', liked);
+    likeCount.textContent = liked ? '1' : '0';
+  });
+
+  const commentForm = document.getElementById('comment-form');
+  const commentList = document.getElementById('comment-list');
+  commentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const textarea = commentForm.querySelector('textarea');
+    const text = textarea.value.trim();
+    if (!text) return;
+    const empty = commentList.querySelector('.comment-empty');
+    if (empty) empty.remove();
+    const item = document.createElement('div');
+    item.className = 'comment-item';
+    item.textContent = text;
+    commentList.appendChild(item);
+    textarea.value = '';
+  });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piotr Szlachta — Painter</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .intro {
+    padding-top: 7.5rem;
+    padding-bottom: 0;
+    text-align: left;
+  }
+
+  .intro-name {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--fg);
+  }
+
+  .intro-role {
+    margin-top: 0.7rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: var(--fg-dim);
+  }
+
+  .work-grid {
+    padding-top: 6.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .work-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 16px rgba(40, 35, 25, 0.05);
+    padding: 1.2rem;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .work-card:hover {
+    box-shadow: 0 6px 20px rgba(40, 35, 25, 0.08);
+  }
+
+  .work-card .section-title {
+    text-align: left;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    color: var(--fg-dim);
+    margin-bottom: 1.4rem;
+  }
+
+  .preview-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    flex: 1;
+  }
+
+  @media (max-width: 860px) {
+    .work-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .work-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 407px;
+      margin: 0 auto;
+    }
+  }
+
+  .preview-image {
+    display: block;
+    width: 100%;
+  }
+
+  .preview-image img {
+    width: 100%;
+    aspect-ratio: 1330 / 1281;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    cursor: pointer;
+  }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5vw;
+    background: rgba(20, 18, 15, 0.92);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .lightbox.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: zoom-out;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5);
+  }
+
+  .preview-info {
+    margin-top: 1.8rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .preview-info .view-all {
+    margin-top: auto;
+  }
+
+  .preview-info h3 {
+    font-weight: 300;
+    font-size: 0.95rem;
+    color: var(--fg-dim);
+    margin-bottom: 1.4rem;
+  }
+
+  .view-all {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg);
+    text-decoration: none;
+    border: 1px solid var(--fg);
+    border-radius: 2px;
+    padding: 0.7rem 1.4rem;
+    white-space: nowrap;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .view-all:hover {
+    color: var(--bg);
+    background: var(--fg);
+    border-color: var(--fg);
+  }
+
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about img {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 20px 44px rgba(40, 35, 25, 0.14);
+    margin: 0 auto;
+    display: block;
+  }
+
+  .about h2 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .about p { color: var(--fg-dim); margin-bottom: 1rem; }
+
+  @media (max-width: 720px) {
+    .about { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .intro {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Piotr Szlachta</div>
+  <nav>
+    <a href="paintings.html">Paintings</a>
+    <a href="posters.html">Posters</a>
+    <a href="street-art.html">Street Art</a>
+    <a href="corporate.html">Corporate</a>
+    <a href="ux-design.html">UX/Design</a>
+    <a href="music.html">Music</a>
+    <a href="somatic-therapy.html">Somatic Therapy</a>
+  </nav>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+</header>
+
+<script>
+  (function () {
+    var btn = document.getElementById('menu-toggle');
+    var nav = document.querySelector('header nav');
+    if (btn && nav) {
+      btn.addEventListener('click', function () { nav.classList.toggle('open'); });
+    }
+  })();
+</script>
+
+
+
+<section class="intro" id="top">
+  <div class="intro-name">Piotr Szlachta</div>
+  <div class="intro-role">Painter &amp; graphic designer — Brussels</div>
+</section>
+
+<section class="work-grid">
+  <div class="work-card" id="paintings">
+    <div class="section-title">Paintings</div>
+    <div class="preview-card">
+      <a class="preview-image" href="paintings.html"><img src="images/paintings/paintings-cover.jpg" alt="Paintings"></a>
+      <div class="preview-info">
+        <a class="view-all" href="paintings.html">View all paintings</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-card" id="posters">
+    <div class="section-title">Posters</div>
+    <div class="preview-card">
+      <a class="preview-image" href="posters.html"><img src="images/posters/posters-cover.jpg" alt="Lazy Bones Festival poster"></a>
+      <div class="preview-info">
+        <a class="view-all" href="posters.html">View all posters</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-card" id="street-art">
+    <div class="section-title">Street Art</div>
+    <div class="preview-card">
+      <a class="preview-image" href="street-art.html"><img src="images/street-art/street-art-cover.jpg" alt="Piotr Szlachta painting a mural"></a>
+      <div class="preview-info">
+        <a class="view-all" href="street-art.html">View all street art</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-card" id="corporate">
+    <div class="section-title">Corporate Illustration</div>
+    <div class="preview-card">
+      <a class="preview-image" href="corporate.html"><img src="images/corporate/sibelga-cover.jpg" alt="Sibelga illustration cover"></a>
+      <div class="preview-info">
+        <a class="view-all" href="corporate.html">View corporate work</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-card" id="ux-design">
+    <div class="section-title">UX/Design</div>
+    <div class="preview-card">
+      <a class="preview-image" href="ux-design.html"><img src="images/ux-placeholder.svg" alt="UX and product design placeholder"></a>
+      <div class="preview-info">
+        <a class="view-all" href="ux-design.html">View UX/Design</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-card" id="music">
+    <div class="section-title">Music</div>
+    <div class="preview-card">
+      <a class="preview-image" href="music.html"><img src="images/music/band-photo.jpg" alt="Piotr Szlachta's band rehearsing"></a>
+      <div class="preview-info">
+        <a class="view-all" href="music.html">View music</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-card" id="somatic-therapy">
+    <div class="section-title">Somatic Therapy</div>
+    <div class="preview-card">
+      <a class="preview-image" href="somatic-therapy.html"><img src="images/somatic-therapy/somatic-therapy-cover.jpg" alt="Somatic therapy"></a>
+      <div class="preview-info">
+        <a class="view-all" href="somatic-therapy.html">View somatic therapy</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <img src="images/profile2.jpg" alt="Portrait of Piotr Szlachta">
+  <div>
+    <h2>Biography</h2>
+    <p>Piotr Szlachta was born in Warsaw, Poland, and moved to Belgium in the late 1980s. He studied Archaeology and Art History before pursuing illustration at the Institut Saint-Luc in Brussels.</p>
+    <p>In 2000, he founded his own graphic design studio. Alongside his professional practice, he has remained active in several artistic collectives dedicated to painting and music. In 2010, he joined the Brussels-based mural collective Farm Prod, contributing to large-scale public artworks across Belgium and Europe.</p>
+    <p>His artistic journey has also been enriched by studies in body-oriented psychotherapy, nurturing a deeper interest in perception, presence and the emotional experience of the world.</p>
+    <p>Today, his paintings explore landscapes suspended between memory and reality. Moving between abstraction and representation, his work seeks not to describe nature, but to approach the essence that lies beneath appearances.</p>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img" src="" alt="Enlarged view">
+</div>
+
+<footer id="contact">
+  <p>Find more work on <a href="https://www.instagram.com/piotr_szlachta/" target="_blank" rel="noopener">Instagram @piotr_szlachta</a></p>
+  <p style="margin-top: 0.5rem;">© 2026 Piotr Szlachta</p>
+</footer>
+
+<script>
+  const header = document.querySelector('header');
+  const onScroll = () => header.classList.toggle('visible', window.scrollY > 60);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('.preview-zoom').forEach((img) => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('open');
+    });
+  });
+  lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+</script>
+
+</body>
+</html>

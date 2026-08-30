@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UX &amp; Web Conception — Piotr Szlachta</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  header { transform: translateY(0); }
+
+  .piece-nav {
+    padding: 6.5rem 5vw 0;
+  }
+
+  .piece {
+    padding: 0 5vw 6rem;
+  }
+
+  .poster-hero {
+    max-width: 407px;
+    margin: 0 auto 3rem;
+  }
+
+  .poster-hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 24px 60px rgba(40, 35, 25, 0.15);
+  }
+
+  .piece-header {
+    max-width: 407px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    text-decoration: none;
+  }
+
+  .back-link:hover { color: var(--accent); }
+
+  .piece-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.6rem;
+  }
+
+  .piece-header .tagline {
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    color: var(--fg-dim);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .description {
+    max-width: 407px;
+    margin: 0 auto;
+  }
+
+  .description p {
+    color: var(--fg-dim);
+    margin-bottom: 1.4rem;
+    font-size: 1.05rem;
+  }
+
+  .description strong {
+    color: var(--fg);
+    font-weight: 600;
+  }
+
+  .description a {
+    color: inherit;
+    text-decoration-color: var(--border);
+    text-underline-offset: 2px;
+    transition: color 0.2s ease;
+  }
+
+  .description a:hover {
+    color: var(--accent);
+  }
+
+  .description h2 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--fg);
+    letter-spacing: 0.01em;
+    margin: 2.6rem 0 1rem;
+  }
+
+  .description .closing {
+    color: var(--fg);
+    font-style: italic;
+  }
+
+  .band-links {
+    max-width: 407px;
+    margin: 2.6rem auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  .band-links a {
+    flex: 1 1 auto;
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg);
+    text-decoration: none;
+    border: 1px solid var(--fg);
+    border-radius: 2px;
+    padding: 0.7rem 1rem;
+    white-space: nowrap;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .band-links a:hover {
+    color: var(--bg);
+    background: var(--fg);
+    border-color: var(--fg);
+  }
+
+  .band-links .link-full {
+    flex-basis: 100%;
+  }
+
+  @media (max-width: 900px) {
+    .piece-nav { padding-top: 5.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .piece, .piece-nav {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .piece-header h1 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="visible">
+  <a class="logo" href="index.html">Piotr Szlachta</a>
+  <nav>
+    <a href="paintings.html">Paintings</a>
+    <a href="posters.html">Posters</a>
+    <a href="street-art.html">Street Art</a>
+    <a href="corporate.html">Corporate</a>
+    <a href="ux-design.html">UX/Design</a>
+    <a href="music.html">Music</a>
+    <a href="somatic-therapy.html">Somatic Therapy</a>
+  </nav>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+</header>
+
+<script>
+  (function () {
+    var btn = document.getElementById('menu-toggle');
+    var nav = document.querySelector('header nav');
+    if (btn && nav) {
+      btn.addEventListener('click', function () { nav.classList.toggle('open'); });
+    }
+  })();
+</script>
+
+
+
+<div class="piece-nav">
+  <a class="back-link" href="index.html">← Home</a>
+</div>
+
+<main class="piece">
+  <div class="section-title">UX/Design</div>
+
+  <div class="poster-hero">
+    <img src="images/ux-placeholder.svg" alt="UX and product design placeholder">
+  </div>
+
+  <div class="piece-header">
+    <h1>UX &amp; Web Conception</h1>
+    <div class="tagline">Design Team Leader</div>
+  </div>
+
+  <div class="description">
+    <p>As <strong>Design Team Leader</strong>, I lead the UX and design work behind the ongoing redesign of the <strong>European Parliament's web ecosystem</strong>. The project is a major co-creation effort, with decisions developed collectively through a workflow involving design, business, development, integration and QA.</p>
+
+    <p>A key part of my role is to act as the <strong>creative link between these teams</strong>. I translate business needs, technical constraints, content requirements and user insights into concrete design solutions — framing problems, exploring directions, facilitating decisions and maintaining a coherent design vision from early UX thinking through to implementation and quality assurance.</p>
+
+    <h2>Top Tasks &amp; Information Architecture</h2>
+    <p>The approach is built around <strong>Gerry McGovern's Top Tasks methodology</strong>. User research and task classification help identify what people actually come to the Parliament's websites to accomplish, and these priorities directly inform navigation, content hierarchy, user journeys and interface decisions.</p>
+
+    <h2>Design System &amp; Workflow</h2>
+    <p>In parallel, we created the <strong>European Parliament Design System</strong> as a shared framework for designing and implementing the new ecosystem.</p>
+
+    <p>The design workflow and system have also benefited from the expertise of <strong>Vitaly Friedman</strong>, particularly around complex UX, interaction patterns and design processes.</p>
+
+    <p>The <strong>Top Tasks methodology and the Design System continuously inform one another</strong>: the methodology helps define what should be prioritised, while the Design System translates those principles into reusable patterns, components and interaction rules.</p>
+
+    <p>The result is a shared design language and working method that helps multiple teams build a more consistent, accessible and user-centred experience.</p>
+
+    <p>As <strong>Design Team Leader</strong>, I also contribute to numerous European Parliament side projects, including <strong>campaign, thematic and informational websites</strong>, helping ensure that they remain aligned with the broader UX principles and design direction.</p>
+
+    <h2>Smaller projects</h2>
+    <p>Alongside this large institutional work, I also take on smaller, more autonomous projects, including <strong>Atmaram</strong> and <strong>Clinique Saint-Josse</strong>.</p>
+
+    <p>These projects allow me to work across the full process — from information architecture and user journeys to interface design, visual identity and, where relevant, automated workflows.</p>
+
+    <div class="band-links">
+      <a class="link-full" href="https://www.europarl.europa.eu" target="_blank" rel="noopener">European Parliament</a>
+      <a href="https://atmaram.be" target="_blank" rel="noopener">Atmaram</a>
+      <a href="https://www.polyclinique-st-josse.be" target="_blank" rel="noopener">Clinique Saint-Josse</a>
+    </div>
+  </div>
+</main>
+
+<footer id="contact">
+  <p>Find more work on <a href="https://www.instagram.com/piotr_szlachta/" target="_blank" rel="noopener">Instagram @piotr_szlachta</a></p>
+  <p style="margin-top: 0.5rem;">© 2026 Piotr Szlachta</p>
+</footer>
+
+</body>
+</html>

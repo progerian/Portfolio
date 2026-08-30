@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Somatic Therapy — Piotr Szlachta</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  header { transform: translateY(0); }
+
+  .coming-soon {
+    max-width: 407px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .coming-soon img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 2rem;
+    box-shadow: 0 20px 44px rgba(40, 35, 25, 0.14);
+  }
+
+  .coming-soon p {
+    color: var(--fg-dim);
+  }
+</style>
+</head>
+<body>
+
+<header class="visible">
+  <a class="logo" href="index.html">Piotr Szlachta</a>
+  <nav>
+    <a href="paintings.html">Paintings</a>
+    <a href="posters.html">Posters</a>
+    <a href="street-art.html">Street Art</a>
+    <a href="corporate.html">Corporate</a>
+    <a href="ux-design.html">UX/Design</a>
+    <a href="music.html">Music</a>
+    <a href="somatic-therapy.html">Somatic Therapy</a>
+  </nav>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+</header>
+
+<script>
+  (function () {
+    var btn = document.getElementById('menu-toggle');
+    var nav = document.querySelector('header nav');
+    if (btn && nav) {
+      btn.addEventListener('click', function () { nav.classList.toggle('open'); });
+    }
+  })();
+</script>
+
+
+
+<section class="list-page">
+  <a class="back-link" href="index.html">← Home</a>
+  <div class="section-title">Somatic Therapy</div>
+  <div class="coming-soon">
+    <img src="images/somatic-therapy/somatic-therapy-cover.jpg" alt="Somatic therapy">
+    <p>More work coming soon.</p>
+  </div>
+</section>
+
+<footer id="contact">
+  <p>Find more work on <a href="https://www.instagram.com/piotr_szlachta/" target="_blank" rel="noopener">Instagram @piotr_szlachta</a></p>
+  <p style="margin-top: 0.5rem;">© 2026 Piotr Szlachta</p>
+</footer>
+
+<script>
+  const header = document.querySelector('header');
+  const onScroll = () => header.classList.toggle('visible', window.scrollY > 60);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+
+</body>
+</html>

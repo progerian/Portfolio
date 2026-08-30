@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Posters — Piotr Szlachta</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  header { transform: translateY(0); }
+
+  .year-group {
+    margin-bottom: 3rem;
+  }
+
+  .year-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    margin-bottom: 1.2rem;
+  }
+</style>
+</head>
+<body>
+
+<header class="visible">
+  <a class="logo" href="index.html">Piotr Szlachta</a>
+  <nav>
+    <a href="paintings.html">Paintings</a>
+    <a href="posters.html">Posters</a>
+    <a href="street-art.html">Street Art</a>
+    <a href="corporate.html">Corporate</a>
+    <a href="ux-design.html">UX/Design</a>
+    <a href="music.html">Music</a>
+    <a href="somatic-therapy.html">Somatic Therapy</a>
+  </nav>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+</header>
+
+<script>
+  (function () {
+    var btn = document.getElementById('menu-toggle');
+    var nav = document.querySelector('header nav');
+    if (btn && nav) {
+      btn.addEventListener('click', function () { nav.classList.toggle('open'); });
+    }
+  })();
+</script>
+
+
+
+<section class="list-page">
+  <a class="back-link" href="index.html">← Home</a>
+  <div class="section-title">Posters</div>
+  <div class="year-group">
+    <div class="year-label">2024</div>
+    <div class="gallery">
+      <figure><img src="images/posters/poster-12.jpg" alt="Sonic Whip 2024 poster"><figcaption>Sonic Whip 2024</figcaption></figure>
+      <figure><img src="images/posters/poster-13.jpg" alt="Lazy Bones Festival poster"><figcaption>Lazy Bones Festival</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">2022</div>
+    <div class="gallery">
+      <figure><img src="images/posters/poster-07.jpg" alt="Desertfest Ghent 2022 poster"><figcaption>Desertfest Ghent 2022</figcaption></figure>
+      <figure><img src="images/posters/poster-08.jpg" alt="Desertfest Antwerp 2022 poster"><figcaption>Desertfest Antwerp 2022</figcaption></figure>
+      <figure><img src="images/posters/poster-09.jpg" alt="Lazy Bones tour poster"><figcaption>Lazy Bones Tour — Witch, King Buffalo, Wo Fat</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">2021</div>
+    <div class="gallery">
+      <figure><img src="images/posters/poster-06.jpg" alt="Desertfest Berlin poster"><figcaption>Desertfest Berlin</figcaption></figure>
+      <figure><img src="images/posters/poster-10.jpg" alt="Desertfest Berlin poster"><figcaption>Desertfest Berlin — A Decade in the Desert</figcaption></figure>
+      <figure><img src="images/posters/poster-18.jpg" alt="Desertfest Antwerp and Ghent 2021 poster"><figcaption>Desertfest Antwerp &amp; Ghent 2021</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">2020</div>
+    <div class="gallery">
+      <figure><a href="poster-antwerp-2020.html"><img src="images/posters/poster-antwerp-2020-main.jpg" alt="Desertfest Antwerp 2020 poster"></a><figcaption>Desertfest Antwerp</figcaption></figure>
+      <figure><a href="poster-newyork-2020.html"><img src="images/posters/poster-11.jpg" alt="Desertfest New York 2020 poster"></a><figcaption>Desertfest New York 2020</figcaption></figure>
+      <figure><img src="images/posters/poster-15.jpg" alt="Desertfest London 2020 poster"><figcaption>Desertfest London 2020</figcaption></figure>
+      <figure><a href="poster-berlin-2020.html"><img src="images/posters/poster-16.jpg" alt="Desertfest Berlin 2020 poster"></a><figcaption>Desertfest Berlin 2020</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">2016</div>
+    <div class="gallery">
+      <figure><img src="images/posters/poster-03.jpg" alt="Magasin 4 poster"><figcaption>Magasin 4</figcaption></figure>
+      <figure><img src="images/posters/poster-05.jpg" alt="La Muerte and The Progerians poster"><figcaption>La Muerte &amp; The Progerians — Muziekodroom</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">2015</div>
+    <div class="gallery">
+      <figure><img src="images/posters/poster-04.jpg" alt="Midnight Ghost Train poster"><figcaption>Midnight Ghost Train</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">Undated</div>
+    <div class="gallery">
+      <figure><img src="images/posters/poster-02.jpg" alt="Punk und Brüll poster"><figcaption>Punk und Brüll — Le Moulin, Braine</figcaption></figure>
+      <figure><img src="images/posters/poster-14.jpg" alt="Spaceslug and Motsus poster"><figcaption>Spaceslug &amp; Motsus</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <p>Find more work on <a href="https://www.instagram.com/piotr_szlachta/" target="_blank" rel="noopener">Instagram @piotr_szlachta</a></p>
+  <p style="margin-top: 0.5rem;">© 2026 Piotr Szlachta</p>
+</footer>
+
+<script>
+  const header = document.querySelector('header');
+  const onScroll = () => header.classList.toggle('visible', window.scrollY > 60);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+
+</body>
+</html>

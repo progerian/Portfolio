@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paintings — Piotr Szlachta</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  header { transform: translateY(0); }
+
+  .year-group {
+    margin-bottom: 3rem;
+  }
+
+  .year-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    margin-bottom: 1.2rem;
+  }
+
+  .statement-quote {
+    max-width: 700px;
+    margin: 0 auto 4.5rem;
+    padding: 0;
+    border: none;
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--fg);
+    text-align: center;
+  }
+
+  .artist-statement {
+    max-width: 1200px;
+    margin: 4.5rem 0 0;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.4rem;
+  }
+
+  .artist-statement p {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--fg-dim);
+  }
+
+  @media (max-width: 900px) {
+    .artist-statement {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .artist-statement {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .artist-statement {
+      margin-bottom: 3.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="visible">
+  <a class="logo" href="index.html">Piotr Szlachta</a>
+  <nav>
+    <a href="paintings.html">Paintings</a>
+    <a href="posters.html">Posters</a>
+    <a href="street-art.html">Street Art</a>
+    <a href="corporate.html">Corporate</a>
+    <a href="ux-design.html">UX/Design</a>
+    <a href="music.html">Music</a>
+    <a href="somatic-therapy.html">Somatic Therapy</a>
+  </nav>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+</header>
+
+<script>
+  (function () {
+    var btn = document.getElementById('menu-toggle');
+    var nav = document.querySelector('header nav');
+    if (btn && nav) {
+      btn.addEventListener('click', function () { nav.classList.toggle('open'); });
+    }
+  })();
+</script>
+
+
+
+<section class="list-page">
+  <a class="back-link" href="index.html">← Home</a>
+  <div class="section-title">Paintings</div>
+
+  <blockquote class="statement-quote">Each painting is an attempt to draw nearer to the essence of things — not an arrival, but a path.</blockquote>
+
+  <div class="year-group">
+    <div class="year-label">2026</div>
+    <div class="gallery">
+      <figure><a href="piece-01.html"><img src="images/post01_2026-08-21.jpg" alt="Painting — August 21, 2026"></a><figcaption>August 21, 2026</figcaption></figure>
+      <figure><a href="piece-28.html"><img src="images/paintings/painting-2026-80x100.jpg" alt="Untitled painting, 2026"></a><figcaption>2026</figcaption></figure>
+      <figure><a href="piece-27.html"><img src="images/paintings/painting-2026-50x70-b.jpg" alt="Untitled painting, 2026"></a><figcaption>2026</figcaption></figure>
+      <figure><a href="piece-26.html"><img src="images/paintings/painting-2026-50x70-a.jpg" alt="Untitled painting, 2026"></a><figcaption>2026</figcaption></figure>
+      <figure><a href="piece-25.html"><img src="images/paintings/painting-2026-40x120.jpg" alt="Untitled painting, 2026"></a><figcaption>2026</figcaption></figure>
+      <figure><a href="piece-24.html"><img src="images/paintings/painting-2026-30x40-b.jpg" alt="Untitled painting, 2026"></a><figcaption>2026</figcaption></figure>
+      <figure><a href="piece-23.html"><img src="images/paintings/painting-2026-30x40-a.jpg" alt="Untitled painting, 2026"></a><figcaption>2026</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">2025</div>
+    <div class="gallery">
+      <figure><a href="piece-22.html"><img src="images/paintings/painting-2025-20x40.jpg" alt="Untitled painting, 2025"></a><figcaption>2025</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">2024</div>
+    <div class="gallery">
+      <figure><a href="piece-21.html"><img src="images/paintings/painting-2024-40x50-b.jpg" alt="Untitled painting, 2024"></a><figcaption>2024</figcaption></figure>
+      <figure><a href="piece-20.html"><img src="images/paintings/painting-2024-70x100.jpg" alt="Untitled painting, 2024"></a><figcaption>2024</figcaption></figure>
+      <figure><a href="piece-19.html"><img src="images/paintings/painting-2024-50x70.jpg" alt="Untitled painting, 2024"></a><figcaption>2024</figcaption></figure>
+      <figure><a href="piece-18.html"><img src="images/paintings/painting-2024-40x60.jpg" alt="Untitled painting, 2024"></a><figcaption>2024</figcaption></figure>
+      <figure><a href="piece-17.html"><img src="images/paintings/painting-2024-40x50-a.jpg" alt="Untitled painting, 2024"></a><figcaption>2024</figcaption></figure>
+      <figure><a href="piece-16.html"><img src="images/paintings/painting-2024-40x120.jpg" alt="Untitled painting, 2024"></a><figcaption>2024</figcaption></figure>
+      <figure><a href="piece-15.html"><img src="images/paintings/painting-2024-30x40.jpg" alt="Untitled painting, 2024"></a><figcaption>2024</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">2023</div>
+    <div class="gallery">
+      <figure><a href="piece-14.html"><img src="images/paintings/painting-2023-50x70.jpg" alt="Untitled painting, 2023"></a><figcaption>2023</figcaption></figure>
+      <figure><a href="piece-13.html"><img src="images/paintings/painting-2023-40x60-b.jpg" alt="Untitled painting, 2023"></a><figcaption>2023</figcaption></figure>
+      <figure><a href="piece-12.html"><img src="images/paintings/painting-2023-40x60-a.jpg" alt="Untitled painting, 2023"></a><figcaption>2023</figcaption></figure>
+      <figure><a href="piece-11.html"><img src="images/paintings/painting-2023-30x40.jpg" alt="Untitled painting, 2023"></a><figcaption>2023</figcaption></figure>
+      <figure><a href="piece-10.html"><img src="images/paintings/painting-2023-120x150.jpg" alt="Untitled painting, 2023"></a><figcaption>2023</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">2022</div>
+    <div class="gallery">
+      <figure><a href="piece-09.html"><img src="images/paintings/painting-2022-50x70.jpg" alt="Untitled painting, 2022"></a><figcaption>2022</figcaption></figure>
+      <figure><a href="piece-08.html"><img src="images/paintings/painting-2022-30x40.jpg" alt="Untitled painting, 2022"></a><figcaption>2022</figcaption></figure>
+      <figure><a href="piece-07.html"><img src="images/paintings/painting-2022-20x50.jpg" alt="Untitled painting, 2022"></a><figcaption>2022</figcaption></figure>
+      <figure><a href="piece-06.html"><img src="images/paintings/painting-2022-150x100-c.jpg" alt="Untitled painting, 2022"></a><figcaption>2022</figcaption></figure>
+      <figure><a href="piece-05.html"><img src="images/paintings/painting-2022-150x100-b.jpg" alt="Untitled painting, 2022"></a><figcaption>2022</figcaption></figure>
+      <figure><a href="piece-04.html"><img src="images/paintings/painting-2022-150x100-a.jpg" alt="Untitled painting, 2022"></a><figcaption>2022</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">2021</div>
+    <div class="gallery">
+      <figure><a href="piece-03.html"><img src="images/paintings/painting-2021-150x100-b.jpg" alt="Untitled painting, 2021"></a><figcaption>2021</figcaption></figure>
+      <figure><a href="piece-02.html"><img src="images/paintings/painting-2021-150x100-a.jpg" alt="Untitled painting, 2021"></a><figcaption>2021</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">2019</div>
+    <div class="gallery">
+      <figure><a href="piece-29.html"><img src="images/paintings/painting-2019-40x120.jpg" alt="Untitled painting, 2019"></a><figcaption>2019</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="artist-statement">
+    <p>My work begins with the landscape, though it is never truly about the landscape. Nature is a point of departure — a language through which I trace memory, emotion, silence, and the quiet structures that shape the way we perceive.</p>
+    <p>I am drawn less to what can be seen than to what remains once the anecdote fades. Forms are reduced to their essential presence; paint is left to flow, dissolve, and resurface, revealing the fragile threshold where the visible gives way to feeling.</p>
+    <p>Each painting is an attempt to draw nearer to the essence of things — not an arrival, but a path. Suspended between figuration and abstraction, presence and disappearance, I hope to open a space for contemplation, where the viewer might reconnect with a landscape of their own.</p>
+  </div>
+</section>
+
+<footer id="contact">
+  <p>Find more work on <a href="https://www.instagram.com/piotr_szlachta/" target="_blank" rel="noopener">Instagram @piotr_szlachta</a></p>
+  <p style="margin-top: 0.5rem;">© 2026 Piotr Szlachta</p>
+</footer>
+
+<script>
+  const header = document.querySelector('header');
+  const onScroll = () => header.classList.toggle('visible', window.scrollY > 60);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+
+</body>
+</html>
