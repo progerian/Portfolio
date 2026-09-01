@@ -19,15 +19,22 @@
     height: auto;
   }
 
+  @media (min-width: 700px) {
+    .intro-logo {
+      max-width: 760px;
+    }
+  }
+
   .intro-role {
     margin-top: 0.2rem;
     font-size: 0.8rem;
+    font-weight: 600;
     letter-spacing: 0.04em;
     color: var(--fg-dim);
   }
 
   .work-grid {
-    padding-top: 9rem;
+    padding-top: 11rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
@@ -240,7 +247,7 @@
 
 <section class="intro" id="top">
   <img class="intro-logo" src="images/mindscape-logo.png" alt="Mindscape Graphics">
-  <div class="intro-role">Piotr Szlachta — Painter &amp; graphic designer — Brussels</div>
+  <div class="intro-role">Piotr Szlachta — Creative solution</div>
 </section>
 
 <section class="work-grid">
