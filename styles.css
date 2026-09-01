@@ -51,6 +51,8 @@ header.visible {
 }
 
 nav a {
+  display: inline-flex;
+  align-items: center;
   color: var(--fg-dim);
   text-decoration: none;
   margin-left: 1.6rem;
@@ -60,6 +62,8 @@ nav a {
 }
 
 nav a:hover { color: var(--accent); }
+
+nav a .chevron { display: none; }
 
 .menu-toggle {
   display: none;
@@ -72,7 +76,7 @@ nav a:hover { color: var(--accent); }
 
 .menu-toggle svg { display: block; }
 
-@media (max-width: 700px) {
+@media (max-width: 960px) {
   .menu-toggle { display: block; }
 
   nav {
@@ -82,15 +86,35 @@ nav a:hover { color: var(--accent); }
     left: 0;
     right: 0;
     flex-direction: column;
-    gap: 0.9rem;
-    background: var(--bg);
+    gap: 0;
+    background: var(--bg-soft);
     border-bottom: 1px solid var(--border);
-    padding: 1.2rem 30px 1.5rem;
+    padding: 0;
   }
 
   nav.open { display: flex; }
 
-  nav a { margin-left: 0; }
+  nav a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    padding: 1.1rem 5vw;
+    font-size: 0.95rem;
+    color: var(--fg);
+    border-top: 1px solid var(--border);
+  }
+
+  nav a:hover { background: var(--bg); color: var(--accent); }
+
+  nav a .chevron {
+    display: block;
+    flex-shrink: 0;
+    color: var(--fg-dim);
+    opacity: 0.6;
+  }
 }
 
 section {
