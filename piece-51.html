@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Desertfest Antwerp 2020 — Piotr Szlachta</title>
+<title>Untitled, 2025 — Piotr Szlachta</title>
 <link rel="stylesheet" href="styles.css">
 <style>
   header { transform: translateY(0); }
@@ -16,12 +16,18 @@
     padding: 0 5vw 6rem;
   }
 
-  .poster-hero {
+  .piece-image {
     max-width: 407px;
     margin: 0 auto 3rem;
   }
 
-  .poster-hero img {
+  .piece-header {
+    max-width: 407px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .piece-image img {
     width: 100%;
     height: auto;
     display: block;
@@ -30,7 +36,7 @@
     transition: box-shadow 0.3s ease;
   }
 
-  .poster-hero img:hover {
+  .piece-image img:hover {
     box-shadow: 0 30px 70px rgba(40, 35, 25, 0.22);
   }
 
@@ -61,9 +67,13 @@
   }
 
   .piece-header {
-    max-width: 407px;
-    margin: 0 auto;
     text-align: center;
+    margin-bottom: 0;
+  }
+
+  .piece-header .divider {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .back-link {
@@ -78,62 +88,26 @@
 
   .back-link:hover { color: var(--accent); }
 
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
   .piece-header h1 {
     font-family: var(--font-display);
     font-size: clamp(1.8rem, 3.5vw, 2.4rem);
     font-weight: 500;
     letter-spacing: 0.02em;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
-  .description {
-    max-width: 407px;
-    margin: 0 auto;
-  }
-
-  .description p {
+  .meta {
     color: var(--fg-dim);
-    margin-bottom: 1.4rem;
-    font-size: 1.05rem;
-  }
-
-  .description .inline-image {
-    margin: 2.2rem 0;
-  }
-
-  .description .inline-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .description .inline-image figcaption {
-    margin-top: 0.7rem;
-    font-size: 0.8rem;
-    color: var(--fg-dim);
-    text-align: center;
-  }
-
-  .photoset {
-    max-width: 407px;
-    margin: 3rem auto 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-  }
-
-  .photoset img {
-    height: 100px;
-    width: auto;
-    max-width: 100%;
-    display: block;
-    cursor: zoom-in;
-    border: 1px solid var(--border);
-    transition: opacity 0.2s ease;
-  }
-
-  .photoset img:hover {
-    opacity: 0.9;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
   }
 
   @media (max-width: 900px) {
@@ -183,26 +157,16 @@
 
 
 <div class="piece-nav">
-  <a class="back-link" href="posters.html">← All posters</a>
+  <a class="back-link" href="paintings.html">← All paintings</a>
 </div>
 
 <main class="piece">
-  <div class="poster-hero">
-    <img class="zoomable" src="images/posters/poster-antwerp-2020-main.jpg" alt="Desertfest Antwerp 2020 poster artwork">
+  <div class="piece-image">
+    <img id="piece-thumb" src="images/paintings/painting-2025-40x80.jpg" alt="Untitled painting, 2025">
   </div>
 
   <div class="piece-header">
-    <h1>Desertfest Antwerp 2020</h1>
-  </div>
-
-  <div class="description">
-    <p>Desertfest Antwerp is the Belgian edition of the international Desertfest festival, dedicated to stoner rock, doom, sludge, heavy psych and underground heavy music. Held in Antwerp, it brings together established international acts and more underground bands in a strong community-driven atmosphere.</p>
-    <p>The 2020 edition was cancelled due to the COVID-19 pandemic and the related restrictions.</p>
-  </div>
-
-  <div class="photoset">
-    <img class="zoomable" src="images/posters/poster-01.jpg" alt="Desertfest Antwerp 2020 poster held up in front of the camera">
-    <img class="zoomable" src="images/posters/poster-antwerp-2020-cancelled.jpg" alt="Desertfest Antwerp 2020 cancelled announcement graphic">
+    <div class="meta">2025 · 40 × 80 cm</div>
   </div>
 
   <div class="like-comments">
@@ -226,7 +190,7 @@
 </main>
 
 <div class="lightbox" id="lightbox">
-  <img id="lightbox-img" src="" alt="Enlarged view">
+  <img src="images/paintings/painting-2025-40x80.jpg" alt="Enlarged view of the artwork">
 </div>
 
 <footer id="contact">
@@ -235,17 +199,9 @@
 </footer>
 
 <script>
+  const thumb = document.getElementById('piece-thumb');
   const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-
-  document.querySelectorAll('.zoomable').forEach((img) => {
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightbox.classList.add('open');
-    });
-  });
-
+  thumb.addEventListener('click', () => lightbox.classList.add('open'));
   lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
 
   const likeBtn = document.getElementById('like-btn');
