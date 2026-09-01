@@ -175,7 +175,10 @@
     var btn = document.getElementById('menu-toggle');
     var nav = document.querySelector('header nav');
     if (btn && nav) {
-      btn.addEventListener('click', function () { nav.classList.toggle('open'); });
+      btn.addEventListener('click', function () {
+        nav.classList.toggle('open');
+        btn.classList.toggle('open');
+      });
     }
   })();
 </script>
