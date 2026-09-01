@@ -20,6 +20,18 @@
     margin-bottom: 1.2rem;
   }
 
+  .gallery-grid-4 {
+    column-count: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  @media (min-width: 480px)  { .gallery-grid-4 { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 760px)  { .gallery-grid-4 { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1100px) { .gallery-grid-4 { grid-template-columns: repeat(4, 1fr); } }
+
   .statement-quote {
     max-width: 700px;
     margin: 0 auto 4.5rem;
@@ -123,7 +135,7 @@
 
   <div class="year-group">
     <div class="year-label">2025</div>
-    <div class="gallery">
+    <div class="gallery gallery-grid-4">
       <figure><a href="piece-22.html"><img src="images/paintings/painting-2025-20x40.jpg" alt="Untitled painting, 2025"></a><figcaption>2025</figcaption></figure>
       <figure><a href="piece-49.html"><img src="images/paintings/painting-2025-30x40-atmaram-mountains.jpg" alt="Atmaram Mountains, 2025"></a><figcaption>Atmaram Mountains, 2025</figcaption></figure>
       <figure><a href="piece-51.html"><img src="images/paintings/painting-2025-40x80.jpg" alt="Untitled painting, 2025"></a><figcaption>2025</figcaption></figure>
