@@ -8,22 +8,137 @@
 <style>
   header { transform: translateY(0); }
 
-  .coming-soon {
+  .piece-nav {
+    padding: 6.5rem 5vw 0;
+  }
+
+  .piece {
+    padding: 0 5vw 6rem;
+  }
+
+  .poster-hero {
+    max-width: 407px;
+    margin: 0 auto 3rem;
+  }
+
+  .poster-hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 24px 60px rgba(40, 35, 25, 0.15);
+  }
+
+  .piece-header {
     max-width: 407px;
     margin: 0 auto;
     text-align: center;
   }
 
-  .coming-soon img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 2rem;
-    box-shadow: 0 20px 44px rgba(40, 35, 25, 0.14);
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    text-decoration: none;
   }
 
-  .coming-soon p {
+  .back-link:hover { color: var(--accent); }
+
+  .piece-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.6rem;
+  }
+
+  .piece-header .tagline {
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
     color: var(--fg-dim);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .description {
+    max-width: 407px;
+    margin: 0 auto;
+  }
+
+  .description p {
+    color: var(--fg-dim);
+    margin-bottom: 1.4rem;
+    font-size: 1.05rem;
+  }
+
+  .description strong {
+    color: var(--fg);
+    font-weight: 600;
+  }
+
+  .description a {
+    color: inherit;
+    text-decoration-color: var(--border);
+    text-underline-offset: 2px;
+    transition: color 0.2s ease;
+  }
+
+  .description a:hover {
+    color: var(--accent);
+  }
+
+  .description .closing {
+    color: var(--fg);
+    font-style: italic;
+  }
+
+  .band-links {
+    max-width: 407px;
+    margin: 2.6rem auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  .band-links a {
+    flex: 1 1 auto;
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg);
+    text-decoration: none;
+    border: 1px solid var(--fg);
+    border-radius: 2px;
+    padding: 0.7rem 1rem;
+    white-space: nowrap;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .band-links a:hover {
+    color: var(--bg);
+    background: var(--fg);
+    border-color: var(--fg);
+  }
+
+  .band-links .link-full {
+    flex-basis: 100%;
+  }
+
+  @media (max-width: 900px) {
+    .piece-nav { padding-top: 5.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .piece, .piece-nav {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .piece-header h1 {
+      font-size: 1.5rem;
+    }
   }
 </style>
 </head>
@@ -61,14 +176,36 @@
 
 
 
-<section class="list-page">
+<div class="piece-nav">
   <a class="back-link" href="index.html">← Home</a>
+</div>
+
+<main class="piece">
   <div class="section-title">Somatic Therapy</div>
-  <div class="coming-soon">
+
+  <div class="poster-hero">
     <img src="images/somatic-therapy/somatic-therapy-cover.jpg" alt="Somatic therapy">
-    <p>More work coming soon.</p>
   </div>
-</section>
+
+  <div class="piece-header">
+    <h1>Body-Oriented Psychotherapy</h1>
+    <div class="tagline">Ongoing training — Atmaram, Brussels</div>
+  </div>
+
+  <div class="description">
+    <p>Alongside painting, I have been training in body-oriented psychotherapy at <strong>Atmaram</strong> in Brussels, in a curriculum built around EMTE — Énergétique, Massage, Thérapie, Eidétique. It sits at the crossroads of psycho-corporal therapy, breathwork, and depth psychology, and it has become a second language for thinking about presence, perception and the unspoken.</p>
+
+    <p>A central reference throughout is <strong>Wilhelm Reich</strong>, whose idea of character structures and "body armor" — the way unresolved emotion settles into posture, breath and muscular tension — runs through the practice: reading the body, working with bioenergetics and Gestalt, and studying how breathing patterns reveal a person's defenses as clearly as their words do.</p>
+
+    <p>The training also draws on regression work into birth and early childhood, energetic anatomy, and family and systemic therapy — mapping the patterns a person inherits before examining how they show up in the body today. Reading <strong>Carl Jung</strong> alongside this work has shaped how I hold what surfaces in a session: less a symptom to correct than material moving toward integration, the same instinct that draws me to landscapes suspended between memory and presence in my paintings.</p>
+
+    <p class="closing">Turning toward the body, rather than away from it, is where this training and my painting practice meet.</p>
+  </div>
+
+  <div class="band-links">
+    <a class="link-full" href="https://atmaram.be" target="_blank" rel="noopener">Atmaram</a>
+  </div>
+</main>
 
 <footer id="contact">
   <p>Find more work on <a href="https://www.instagram.com/piotr_szlachta/" target="_blank" rel="noopener">Instagram @piotr_szlachta</a></p>
