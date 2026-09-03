@@ -146,6 +146,88 @@
       font-size: 1.5rem;
     }
   }
+
+  .photoset-wrap {
+    position: relative;
+    max-width: 407px;
+    margin: 2.5rem auto 0;
+  }
+
+  .photoset-wrap .photoset {
+    margin: 0;
+    max-width: none;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .photoset-wrap .photoset::-webkit-scrollbar {
+    display: none;
+  }
+
+  .photoset-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background: none;
+    border: none;
+    color: var(--fg-dim);
+    cursor: pointer;
+    padding: 0;
+    z-index: 2;
+  }
+
+  .photoset-nav:hover {
+    color: var(--accent);
+  }
+
+  .photoset-nav.prev {
+    right: 100%;
+    margin-right: 0.3rem;
+  }
+
+  .photoset-nav.next {
+    left: 100%;
+    margin-left: 0.3rem;
+  }
+
+  @media (max-width: 720px) {
+    .photoset-nav {
+      display: none;
+    }
+  }
+
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.85);
+    cursor: pointer;
+    padding: 0.6rem;
+    z-index: 60;
+  }
+
+  .lightbox-nav:hover {
+    color: #fff;
+  }
+
+  .lightbox-nav.prev {
+    left: 1rem;
+  }
+
+  .lightbox-nav.next {
+    right: 1rem;
+  }
 </style>
 </head>
 <body>
@@ -195,8 +277,14 @@
     <div class="meta">2021 · 150 × 100 cm</div>
   </div>
 
-  <div class="photoset">
+  <div class="photoset-wrap">
+    <button class="photoset-nav prev" type="button" aria-label="Scroll left"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 9 12 15 18"/></svg></button>
+
+
+    <div class="photoset">
     <img class="zoomable" src="images/paintings/painting-2021-150x100-a-thumb1.jpg" alt="Untitled installation view, 2021">
+    </div>
+    <button class="photoset-nav next" type="button" aria-label="Scroll right"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></button>
   </div>
 
   <div class="like-comments">
@@ -263,6 +351,71 @@
     textarea.value = '';
   });
 
+</script>
+
+<script>
+  // carousel-init
+
+  (function () {
+    var mainImgs = [];
+    var pieceThumb = document.getElementById('piece-thumb');
+    if (pieceThumb) mainImgs.push(pieceThumb);
+    var heroImg = document.querySelector('.poster-hero img, .piece-image img');
+    if (heroImg && mainImgs.indexOf(heroImg) === -1) mainImgs.push(heroImg);
+    var setImgs = Array.from(document.querySelectorAll('.photoset .zoomable'));
+    var allImgs = mainImgs.concat(setImgs.filter(function (i) { return mainImgs.indexOf(i) === -1; }));
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lightbox-img') || (lb && lb.querySelector('img'));
+    var current = 0;
+
+    function showAt(i) {
+      if (!allImgs.length) return;
+      current = (i + allImgs.length) % allImgs.length;
+      lbImg.src = allImgs[current].src;
+      lbImg.alt = allImgs[current].alt;
+    }
+
+    allImgs.forEach(function (img, i) {
+      img.addEventListener('click', function () { current = i; });
+    });
+
+    if (lb) {
+      var prevBtn = document.createElement('button');
+      prevBtn.className = 'lightbox-nav prev';
+      prevBtn.type = 'button';
+      prevBtn.setAttribute('aria-label', 'Previous image');
+      prevBtn.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 9 12 15 18"/></svg>';
+      var nextBtn = document.createElement('button');
+      nextBtn.className = 'lightbox-nav next';
+      nextBtn.type = 'button';
+      nextBtn.setAttribute('aria-label', 'Next image');
+      nextBtn.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>';
+      if (allImgs.length > 1) {
+        lb.appendChild(prevBtn);
+        lb.appendChild(nextBtn);
+      }
+      prevBtn.addEventListener('click', function (e) { e.stopPropagation(); showAt(current - 1); });
+      nextBtn.addEventListener('click', function (e) { e.stopPropagation(); showAt(current + 1); });
+      document.addEventListener('keydown', function (e) {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'ArrowLeft') showAt(current - 1);
+        if (e.key === 'ArrowRight') showAt(current + 1);
+      });
+    }
+
+    document.querySelectorAll('.photoset-wrap').forEach(function (wrap) {
+      var track = wrap.querySelector('.photoset');
+      var prev = wrap.querySelector('.photoset-nav.prev');
+      var next = wrap.querySelector('.photoset-nav.next');
+      if (!track || !prev || !next) return;
+      var step = function () {
+        var img = track.querySelector('img');
+        return img ? img.offsetWidth + 10 : 150;
+      };
+      prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+      next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+    });
+  })();
 </script>
 
 </body>
