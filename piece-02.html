@@ -110,6 +110,29 @@
     letter-spacing: 0.02em;
   }
 
+  .photoset {
+    max-width: 407px;
+    margin: 2.5rem auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+  }
+
+  .photoset img {
+    height: 130px;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    cursor: zoom-in;
+    border: 1px solid var(--border);
+    transition: opacity 0.2s ease;
+  }
+
+  .photoset img:hover {
+    opacity: 0.9;
+  }
+
   @media (max-width: 900px) {
     .piece-nav { padding-top: 5.5rem; }
   }
@@ -172,6 +195,10 @@
     <div class="meta">2021 · 150 × 100 cm</div>
   </div>
 
+  <div class="photoset">
+    <img class="zoomable" src="images/paintings/painting-2021-150x100-a-thumb1.jpg" alt="Untitled installation view, 2021">
+  </div>
+
   <div class="like-comments">
     <div class="like-bar">
       <button class="like-btn" id="like-btn" type="button">
@@ -204,7 +231,11 @@
 <script>
   const thumb = document.getElementById('piece-thumb');
   const lightbox = document.getElementById('lightbox');
-  thumb.addEventListener('click', () => lightbox.classList.add('open'));
+  const lightboxImg = lightbox.querySelector('img');
+  thumb.addEventListener('click', () => { lightboxImg.src = thumb.src; lightbox.classList.add('open'); });
+  document.querySelectorAll('.photoset .zoomable').forEach((img) => {
+    img.addEventListener('click', () => { lightboxImg.src = img.src; lightbox.classList.add('open'); });
+  });
   lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
 
   const likeBtn = document.getElementById('like-btn');
